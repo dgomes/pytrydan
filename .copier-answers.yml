@@ -1,0 +1,21 @@
+# Changes here will be overwritten by Copier
+_commit: 0a6bcfb
+_src_path: gh:browniebroke/pypackage-template
+add_me_as_contributor: true
+cli_name: pytrydan
+copyright_year: '2023'
+documentation: true
+email: diogogomes@gmail.com
+full_name: Diogo Gomes
+github_username: dgomes
+has_cli: true
+initial_commit: true
+open_source_license: MIT
+package_name: pytrydan
+project_name: Python bindings to V2C Trydan EVSE
+project_short_description: Library to interface with V2C EVSE Trydan
+project_slug: pytrydan
+run_poetry_install: true
+setup_github: false
+setup_pre_commit: true
+
