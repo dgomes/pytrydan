@@ -7,7 +7,7 @@
 project = "Python bindings to V2C Trydan EVSE"
 copyright = "2023, Diogo Gomes"
 author = "Diogo Gomes"
-release = "0.0.0"
+release = "0.0.2"
 
 # General configuration
 extensions = [
