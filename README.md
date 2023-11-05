@@ -48,15 +48,17 @@ Install this via pip (or your favourite package manager):
 
 ## Usage
 
-There is a command line ´pytrydan´ that can be used for basic interaction with the EVSE.
+There is a command line `pytrydan` that can be used for basic interaction with the EVSE.
 
 Retrieve the current status:
+
 `$pytrydan status IP_OF_TRYDAN`
 
 E.g. set current charging intensity using keyword "Intensity"
+
 `$pytrydan set IP_OF_TRYDAN Intensity 16`
 
-For more information on [available keywords](https://docs.google.com/spreadsheets/d/e/2PACX-1vQGA_7Z4YaSMZeHRTnAP6z_82dVPmM33NxJhvsDBEFn8LyWjX-RX_fkR7KCErqAE4aGFvPrUufooHoM/pubhtml?gid=1147522182&single=true)
+More information on [available keywords](https://docs.google.com/spreadsheets/d/e/2PACX-1vQGA_7Z4YaSMZeHRTnAP6z_82dVPmM33NxJhvsDBEFn8LyWjX-RX_fkR7KCErqAE4aGFvPrUufooHoM/pubhtml?gid=1147522182&single=true)
 
 ## Contributors ✨
 
