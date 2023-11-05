@@ -33,6 +33,7 @@ tenacity = "^8.2.2"
 httpx = ">=0.24.0"
 orjson = ">=3.9.2"
 syrupy = "^4.6.0"
+respx = "^0.20.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0"
