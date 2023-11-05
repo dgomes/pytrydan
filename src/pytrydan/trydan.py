@@ -99,6 +99,13 @@ class Trydan:
             )
 
     @property
+    def data(self) -> TrydanData | None:
+        """Return cached version of Trydan EVSE."""
+        if self._data is None:
+            raise TrydanRetryLater("no initial data retrieved")
+        return self._data
+
+    @property
     def host(self) -> str:
         """Return the Trydan host."""
         return self._host
