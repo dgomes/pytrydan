@@ -4,6 +4,7 @@ from typing import Any
 
 import httpx
 import orjson
+from httpcore import ConnectTimeout
 from tenacity import retry, retry_if_exception_type, wait_random_exponential
 
 from .const import API_TIMEOUT, KEYWORDS
@@ -81,7 +82,10 @@ class Trydan:
 
     async def get_data(self) -> TrydanData:
         """Get data from Trydan."""
-        data = await self._json_request(f"http://{self._host}/RealTimeData")
+        try:
+            data = await self._json_request(f"http://{self._host}/RealTimeData")
+        except ConnectTimeout as err:
+            raise TrydanRetryLater("Timeout connecting to Trydan") from err
         self._data = TrydanData.from_api(data)
         return self._data
 
