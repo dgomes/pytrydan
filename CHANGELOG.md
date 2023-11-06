@@ -1,5 +1,19 @@
 # Changelog
 
+<!--next-version-placeholder-->
+
+## v0.1.0 (2023-11-06)
+
+### Feature
+
+* Add data cache ([`fe4faec`](https://github.com/dgomes/pytrydan/commit/fe4faec38af2ef8a1bef7e187ef5428be604e3e1))
+
+### Documentation
+
+* Improve formating ([`a66f853`](https://github.com/dgomes/pytrydan/commit/a66f8539a4a92a788adee764bab8bda776cfc51a))
+* Add usage ([`2806119`](https://github.com/dgomes/pytrydan/commit/280611950c64b68a667c44e6f79973d5f099c208))
+
+
 ## v0.0.0 (2023-11-05)
 
 ### Documentation
