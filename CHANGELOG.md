@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.1 (2023-11-06)
+
+### Fix
+
+* Lower typer to accomodate HA dependencies ([`6af5e28`](https://github.com/dgomes/pytrydan/commit/6af5e28cffffbd00b0dd80adcfb07af807df4793))
+
 ## v0.1.0 (2023-11-06)
 
 ### Feature
