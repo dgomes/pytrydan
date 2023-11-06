@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.3 (2023-11-06)
+
+### Fix
+
+* Raise proper error on get_data() timeout ([`26eaac2`](https://github.com/dgomes/pytrydan/commit/26eaac2700637fe4ac77baac9aee1b5c1a601e24))
+
 ## v0.1.2 (2023-11-06)
 
 ### Fix
