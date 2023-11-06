@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.2 (2023-11-06)
+
+### Fix
+
+* Flexibilize typer to accomodate HA dependencies ([`bed04da`](https://github.com/dgomes/pytrydan/commit/bed04dabc9a501aff97e74e9c3bbdd43b27b709b))
+
 ## v0.1.1 (2023-11-06)
 
 ### Fix
