@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytrydan"
-version = "0.0.2"
+version = "0.0.0"
 description = "Library to interface with V2C EVSE Trydan"
 authors = ["Diogo Gomes <diogogomes@gmail.com>"]
 license = "MIT"
@@ -38,6 +38,7 @@ respx = "^0.20.2"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0"
 pytest-cov = "^3.0"
+python-semantic-release = "^8.3.0"
 
 [tool.poetry.group.docs]
 optional = true
