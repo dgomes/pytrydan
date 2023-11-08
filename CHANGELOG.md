@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2023-11-08)
+
+### Feature
+
+* Validate keywords ([`999e754`](https://github.com/dgomes/pytrydan/commit/999e7549dbd6d0444191ac435b79ff14213467d7))
+
+### Fix
+
+* Export all symbols ([`cb41538`](https://github.com/dgomes/pytrydan/commit/cb41538bf9b5c648af90297bcde39ecda0aa6ab4))
+
 ## v0.2.0 (2023-11-08)
 
 ### Feature
