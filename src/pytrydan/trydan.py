@@ -15,7 +15,15 @@ from .exceptions import (
     TrydanInvalidValue,
     TrydanRetryLater,
 )
-from .models.trydan import TrydanData
+from .models.trydan import (
+    ChargePointTimerState,
+    DynamicPowerMode,
+    DynamicState,
+    LockState,
+    PauseDynamicState,
+    PauseState,
+    TrydanData,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -89,17 +97,32 @@ class Trydan:
         self._data = TrydanData.from_api(data)
         return self._data
 
-    async def set_keyword(self, keyword: str, value: str) -> None:
+    async def set_keyword(
+        self,
+        keyword: str,
+        value: str
+        | int
+        | ChargePointTimerState
+        | DynamicPowerMode
+        | DynamicState
+        | LockState
+        | PauseDynamicState
+        | PauseState
+        | TrydanData,
+    ) -> None:
         """Set a keyword in Trydan."""
         if keyword not in KEYWORDS:
             raise TrydanInvalidKeyword(f"Keyword {keyword} is not valid")
 
-        # TODO: Check if value is valid based on keyword used
-        data = await self._request(f"http://{self._host}/write/{keyword}={value}")
+        try:
+            data = await self._request(f"http://{self._host}/write/{keyword}={value}")
+        except ConnectTimeout as err:
+            raise TrydanRetryLater("Timeout connecting to Trydan") from err
 
         if data.status_code != 200 or data.content != b"OK":
             raise TrydanInvalidValue(
-                f"Failed for {keyword}={value} with status {data.status_code}"
+                f"Failed for {keyword}={value}"
+                " code={data.status_code} : <{data.content}>"
             )
 
     @property
@@ -120,3 +143,88 @@ class Trydan:
         if self._data is None:
             raise TrydanRetryLater("No data available")
         return self._data.firmware_version
+
+    async def pause(self, value: bool = True) -> None:
+        """Pause state of current charging session."""
+        await self.set_keyword(
+            "Pause", PauseState.PAUSED if value else PauseState.NOT_PAUSED
+        )
+
+    async def resume(self) -> None:
+        """Resume state of current charging session."""
+        await self.pause(False)
+
+    async def lock(self, value: bool = True) -> None:
+        """Disabling state of Charge Point."""
+        await self.set_keyword(
+            "Locked", LockState.ENABLED if value else LockState.DISABLED
+        )
+
+    async def unlock(self) -> None:
+        """Disabling state of Charge Point."""
+        await self.lock(False)
+
+    async def timer(self, value: bool = True) -> None:
+        """Set the Charge Point Timer state."""
+        await self.set_keyword(
+            "Timer",
+            ChargePointTimerState.TIMER_ON
+            if value
+            else ChargePointTimerState.TIMER_OFF,
+        )
+
+    async def timer_disable(self) -> None:
+        """Disable the Charge Point Timer."""
+        await self.timer(False)
+
+    async def intensity(self, current: int) -> None:
+        """Set the intensity of the Charge Point."""
+        if not (current >= 6 and current <= 32):
+            raise TrydanInvalidValue("Intensity must be between 6 and 32")
+
+        await self.set_keyword("Intensity", current)
+
+    async def dynamic(self, value: bool = True) -> None:
+        """Set the Dynamic Intensity Modulation state."""
+        await self.set_keyword(
+            "Dynamic", DynamicState.ENABLED if value else DynamicState.DISABLED
+        )
+
+    async def dynamic_disable(self) -> None:
+        """Disable the Dynamic Intensity Modulation."""
+        await self.dynamic(False)
+
+    async def min_intensity(self, current: int) -> None:
+        """Set the minimum intensity of the Charge Point."""
+        if not (current >= 6 and current <= 32):
+            raise TrydanInvalidValue("Intensity must be between 6 and 32")
+
+        await self.set_keyword("MinIntensity", current)
+
+    async def max_intensity(self, current: int) -> None:
+        """Set the maximum intensity of the Charge Point."""
+        if not (current >= 6 and current <= 32):
+            raise TrydanInvalidValue("Intensity must be between 6 and 32")
+
+        await self.set_keyword("MaxIntensity", current)
+
+    async def pause_dynamic(self, value: bool = True) -> None:
+        """Set the Pause Dynamic state."""
+        await self.set_keyword(
+            "PauseDynamic",
+            PauseDynamicState.MODULATING if value else PauseDynamicState.NOT_MODULATING,
+        )
+
+    async def resume_dynamic(self) -> None:
+        """Resume the Pause Dynamic state."""
+        await self.pause_dynamic(False)
+
+    async def dynamic_power_mode(self, mode: DynamicPowerMode) -> None:
+        """Set the Dynamic Power Mode."""
+        await self.set_keyword("DynamicPowerMode", mode)
+
+    async def contracted_power(self, power: int) -> None:
+        """Set the Contracted Power."""
+        if not (power > 0):
+            raise TrydanInvalidValue("Contracted Power must be positive")
+        await self.set_keyword("ContractedPower", power)

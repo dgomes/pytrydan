@@ -13,6 +13,13 @@ class SlaveCommunicationState(IntEnum):
     COMMUNICATION_ERROR = 2
 
 
+class PauseState(IntEnum):
+    """Enum for Pause State."""
+
+    PAUSED = 1
+    NOT_PAUSED = 0
+
+
 class LockState(IntEnum):
     """Enum for Lock State."""
 
