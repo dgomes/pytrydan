@@ -4,7 +4,15 @@ from ipaddress import ip_address
 import typer
 from rich import print
 
-from .main import trydan_set, trydan_status
+from .main import (
+    trydan_intensity,
+    trydan_lock,
+    trydan_pause,
+    trydan_resume,
+    trydan_set,
+    trydan_status,
+    trydan_unlock,
+)
 
 app = typer.Typer()
 
@@ -15,6 +23,46 @@ def status(ip: str) -> None:
     print("Connecting to %s", ip_address(ip))
 
     asyncio.run(trydan_status(ip))
+
+
+@app.command()
+def pause(ip: str) -> None:
+    """Pause Trydan EVSE."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_pause(ip))
+
+
+@app.command()
+def resume(ip: str) -> None:
+    """Resume Trydan EVSE."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_resume(ip))
+
+
+@app.command()
+def lock(ip: str) -> None:
+    """Lock Trydan EVSE."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_lock(ip))
+
+
+@app.command()
+def unlock(ip: str) -> None:
+    """Unlock Trydan EVSE."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_unlock(ip))
+
+
+@app.command()
+def intensity(ip: str, intensity: int) -> None:
+    """Set Intensity in Trydan EVSE."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_intensity(ip, intensity))
 
 
 @app.command()
