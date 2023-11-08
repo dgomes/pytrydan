@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2023-11-08)
+
+### Feature
+
+* Add methods to control trydan ([`ae40996`](https://github.com/dgomes/pytrydan/commit/ae409965a1689b2d085c9a50507752f8dea3e833))
+
 ## v0.1.3 (2023-11-06)
 
 ### Fix
