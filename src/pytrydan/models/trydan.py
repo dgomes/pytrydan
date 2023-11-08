@@ -23,8 +23,8 @@ class PauseState(IntEnum):
 class LockState(IntEnum):
     """Enum for Lock State."""
 
-    ENABLED = 0
-    DISABLED = 1
+    ENABLED = 1
+    DISABLED = 0
 
 
 class ChargePointTimerState(IntEnum):
@@ -95,7 +95,7 @@ class TrydanData:
             charge_time=data["ChargeTime"],
             house_power=data["HousePower"],
             fv_power=data["FVPower"],
-            paused=data["Paused"],
+            paused=PauseState(data["Paused"]),
             locked=LockState(data["Locked"]),
             timer=ChargePointTimerState(data["Timer"]),
             intensity=data["Intensity"],
