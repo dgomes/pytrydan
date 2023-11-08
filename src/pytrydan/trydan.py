@@ -25,6 +25,18 @@ from .models.trydan import (
     TrydanData,
 )
 
+VALIDATION = {
+    "ChargeState": lambda x: x in ChargePointTimerState,
+    "DynamicPowerMode": lambda x: x in DynamicPowerMode,
+    "Dynamic": lambda x: x in DynamicState,
+    "Locked": lambda x: x in LockState,
+    "PauseDynamic": lambda x: x in PauseDynamicState,
+    "Paused": lambda x: x in PauseState,
+    "Intensity": lambda x: x >= 6 and x <= 32,
+    "MinIntensity": lambda x: x >= 6 and x <= 32,
+    "MaxIntensity": lambda x: x >= 6 and x <= 32,
+}
+
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -114,8 +126,16 @@ class Trydan:
         if keyword not in KEYWORDS:
             raise TrydanInvalidKeyword(f"Keyword {keyword} is not valid")
 
+        if keyword in VALIDATION:
+            if not VALIDATION[keyword](value):
+                raise TrydanInvalidValue(
+                    f"Value {value} is not valid for keyword {keyword}"
+                )
+
+        url = f"http://{self._host}/write/{keyword}={value}"
+        _LOGGER.debug("HTTP GET: %s", url)
         try:
-            data = await self._request(f"http://{self._host}/write/{keyword}={value}")
+            data = await self._request(url)
         except ConnectTimeout as err:
             raise TrydanRetryLater("Timeout connecting to Trydan") from err
 
@@ -147,7 +167,7 @@ class Trydan:
     async def pause(self, value: bool = True) -> None:
         """Pause state of current charging session."""
         await self.set_keyword(
-            "Pause", PauseState.PAUSED if value else PauseState.NOT_PAUSED
+            "Paused", PauseState.PAUSED if value else PauseState.NOT_PAUSED
         )
 
     async def resume(self) -> None:
