@@ -1,11 +1,19 @@
 __version__ = "0.0.0"
 
+from .exceptions import (
+    TrydanCommunicationError,
+    TrydanInvalidKeyword,
+    TrydanInvalidResponse,
+    TrydanInvalidValue,
+    TrydanRetryLater,
+)
 from .models.trydan import (
     ChargePointTimerState,
     DynamicPowerMode,
     DynamicState,
     LockState,
     PauseDynamicState,
+    PauseState,
     SlaveCommunicationState,
     TrydanData,
 )
@@ -19,5 +27,11 @@ __all__ = [
     "ChargePointTimerState",
     "DynamicState",
     "PauseDynamicState",
+    "PauseState",
     "DynamicPowerMode",
+    "TrydanCommunicationError",
+    "TrydanInvalidKeyword",
+    "TrydanInvalidResponse",
+    "TrydanInvalidValue",
+    "TrydanRetryLater",
 ]
