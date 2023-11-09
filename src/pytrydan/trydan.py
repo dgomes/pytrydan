@@ -17,11 +17,13 @@ from .exceptions import (
 )
 from .models.trydan import (
     ChargePointTimerState,
+    ChargeState,
     DynamicPowerMode,
     DynamicState,
     LockState,
     PauseDynamicState,
     PauseState,
+    ReadyState,
     TrydanData,
 )
 
@@ -163,6 +165,27 @@ class Trydan:
         if self._data is None:
             raise TrydanRetryLater("No data available")
         return self._data.firmware_version
+
+    @property
+    def connected(self) -> bool:
+        """Return the Trydan connection state."""
+        if self._data is None:
+            raise TrydanRetryLater("No data available")
+        return self._data.charge_state != ChargeState.NOT_CONNECTED
+
+    @property
+    def charging(self) -> bool:
+        """Return the Trydan charging state."""
+        if self._data is None:
+            raise TrydanRetryLater("No data available")
+        return self._data.charge_state == ChargeState.CONNECTED_CHARGING
+
+    @property
+    def ready(self) -> bool:
+        """Return the Trydan ready state."""
+        if self._data is None:
+            raise TrydanRetryLater("No data available")
+        return self._data.ready_state == ReadyState.READY
 
     async def pause(self, value: bool = True) -> None:
         """Pause state of current charging session."""

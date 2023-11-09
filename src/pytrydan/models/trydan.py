@@ -5,6 +5,21 @@ from enum import IntEnum
 from typing import Any
 
 
+class ChargeState(IntEnum):
+    """Enum for Charge State."""
+
+    NOT_CONNECTED = 0
+    CONNECTED_NOT_CHARGING = 1
+    CONNECTED_CHARGING = 2
+
+
+class ReadyState(IntEnum):
+    """Enum for Ready State."""
+
+    NOT_READY = 0
+    READY = 1
+
+
 class SlaveCommunicationState(IntEnum):
     """Enum for Slave Communication State."""
 
@@ -87,8 +102,8 @@ class TrydanData:
     def from_api(cls, data: dict[str, Any]) -> TrydanData:
         """Initialize from the API."""
         return cls(
-            charge_state=data["ChargeState"],
-            ready_state=data.get("ReadyState"),
+            charge_state=ChargeState(data["ChargeState"]),
+            ready_state=ReadyState(data.get("ReadyState", 0)),
             charge_power=data["ChargePower"],
             charge_energy=data["ChargeEnergy"],
             slave_error=SlaveCommunicationState(data["SlaveError"]),
