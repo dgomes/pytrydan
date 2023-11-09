@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-11-09)
+
+### Feature
+
+* Add binary sensors ([`8c24a3a`](https://github.com/dgomes/pytrydan/commit/8c24a3ac4c10bb310f83c08d7c4f565a136d61b3))
+
 ## v0.3.0 (2023-11-08)
 
 ### Feature
