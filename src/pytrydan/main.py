@@ -13,6 +13,36 @@ async def trydan_status(ip: str) -> int:
     return 0
 
 
+async def trydan_connected(ip: str) -> int:
+    """Retrieve Trydan Status."""
+    trydan = Trydan(ip)
+    await trydan.get_data()
+
+    print(trydan.connected)
+
+    return 0
+
+
+async def trydan_charging(ip: str) -> int:
+    """Retrieve Trydan Status."""
+    trydan = Trydan(ip)
+    await trydan.get_data()
+
+    print(trydan.charging)
+
+    return 0
+
+
+async def trydan_ready(ip: str) -> int:
+    """Retrieve Trydan Status."""
+    trydan = Trydan(ip)
+    await trydan.get_data()
+
+    print(trydan.ready)
+
+    return 0
+
+
 async def trydan_set(ip: str, keyword: str, value: str) -> int:
     """Set KeyWord value in Trydan."""
     trydan = Trydan(ip)

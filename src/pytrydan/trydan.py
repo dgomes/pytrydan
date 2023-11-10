@@ -86,6 +86,8 @@ class Trydan:
             raise TrydanCommunicationError(
                 f"Failed for {url} with status {status_code}"
             )
+        if status_code != HTTPStatus.OK:
+            raise TrydanInvalidResponse(f"Failed for {url} with status {status_code}")
 
         return response
 

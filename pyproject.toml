@@ -40,6 +40,8 @@ python-semantic-release = "^8.3.0"
 pytest-asyncio = "^0.21.1"
 syrupy = "^4.6.0"
 respx = "^0.20.2"
+tenacity = "^8.2.3"
+typer = "^0.9.0"
 
 [tool.poetry.group.docs]
 optional = true

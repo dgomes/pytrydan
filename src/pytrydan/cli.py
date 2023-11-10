@@ -5,9 +5,12 @@ import typer
 from rich import print
 
 from .main import (
+    trydan_charging,
+    trydan_connected,
     trydan_intensity,
     trydan_lock,
     trydan_pause,
+    trydan_ready,
     trydan_resume,
     trydan_set,
     trydan_status,
@@ -23,6 +26,30 @@ def status(ip: str) -> None:
     print("Connecting to %s", ip_address(ip))
 
     asyncio.run(trydan_status(ip))
+
+
+@app.command()
+def connected(ip: str) -> None:
+    """Retrieve Trydan Status."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_connected(ip))
+
+
+@app.command()
+def charging(ip: str) -> None:
+    """Retrieve Trydan Status."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_charging(ip))
+
+
+@app.command()
+def ready(ip: str) -> None:
+    """Retrieve Trydan Status."""
+    print("Connecting to %s", ip_address(ip))
+
+    asyncio.run(trydan_ready(ip))
 
 
 @app.command()
