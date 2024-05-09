@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.0 (2024-05-09)
+
+### Feature
+
+* Add error codes according to V2C support ([`ee8726c`](https://github.com/dgomes/pytrydan/commit/ee8726c51eae1ad99874ac1a0f9cf0f2e3d3c4c7))
+
+### Fix
+
+* Address errors communicated by V2C support ([`ab1123e`](https://github.com/dgomes/pytrydan/commit/ab1123e8ba5dd755f8f98fe4fa04ff66cc7f772b))
+
 ## v0.5.0 (2024-05-09)
 
 ### Feature
