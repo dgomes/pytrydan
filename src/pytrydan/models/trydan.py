@@ -26,6 +26,8 @@ class SlaveCommunicationState(IntEnum):
     NO_ERROR = 0
     ERROR_MESSAGE = 1
     COMMUNICATION_ERROR = 2
+    UNKNOWN_ERROR_1 = 3
+    UNKNOWN_ERROR_2 = 4
 
 
 class PauseState(IntEnum):
@@ -78,6 +80,7 @@ class DynamicPowerMode(IntEnum):
 class TrydanData:
     """Model for Trydan data."""
 
+    ID: str | None
     charge_state: int
     ready_state: int | None
     charge_power: float
@@ -86,6 +89,7 @@ class TrydanData:
     charge_time: int
     house_power: int
     fv_power: float
+    battery_power: float | None
     paused: int
     locked: LockState
     timer: ChargePointTimerState
@@ -102,6 +106,7 @@ class TrydanData:
     def from_api(cls, data: dict[str, Any]) -> TrydanData:
         """Initialize from the API."""
         return cls(
+            ID=data.get("ID"),
             charge_state=ChargeState(data["ChargeState"]),
             ready_state=ReadyState(data.get("ReadyState", 0)),
             charge_power=data["ChargePower"],
@@ -110,6 +115,7 @@ class TrydanData:
             charge_time=data["ChargeTime"],
             house_power=data["HousePower"],
             fv_power=data["FVPower"],
+            battery_power=data.get("BatteryPower"),
             paused=PauseState(data["Paused"]),
             locked=LockState(data["Locked"]),
             timer=ChargePointTimerState(data["Timer"]),
