@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2024-05-09)
+
+### Feature
+
+* CLI binary sensors ([`404fc0c`](https://github.com/dgomes/pytrydan/commit/404fc0cb5ba09e485d56818d7f5a3f27d78197f6))
+
 ## v0.4.0 (2023-11-09)
 
 ### Feature
