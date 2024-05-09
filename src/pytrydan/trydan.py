@@ -110,6 +110,9 @@ class Trydan:
             data = await self._json_request(f"http://{self._host}/RealTimeData")
         except ConnectTimeout as err:
             raise TrydanRetryLater("Timeout connecting to Trydan") from err
+        except httpx.ReadTimeout as err:
+            raise TrydanRetryLater("Timeout reading from Trydan") from err
+
         self._data = TrydanData.from_api(data)
         return self._data
 
@@ -160,6 +163,13 @@ class Trydan:
     def host(self) -> str:
         """Return the Trydan host."""
         return self._host
+
+    @property
+    def id(self) -> str | None:
+        """Return the Trydan ID."""
+        if self._data is None:
+            raise TrydanRetryLater("No data available")
+        return self._data.ID
 
     @property
     def firmware_version(self) -> str | None:
@@ -257,7 +267,7 @@ class Trydan:
         """Set the Pause Dynamic state."""
         await self.set_keyword(
             "PauseDynamic",
-            PauseDynamicState.MODULATING if value else PauseDynamicState.NOT_MODULATING,
+            PauseDynamicState.NOT_MODULATING if value else PauseDynamicState.MODULATING,
         )
 
     async def resume_dynamic(self) -> None:
