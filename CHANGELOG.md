@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.1 (2024-05-11)
+
+### Fix
+
+* Misspelling ([`87f2f27`](https://github.com/dgomes/pytrydan/commit/87f2f275d92ee3f5fa8947a9fc5e9d170cc5ff40))
+
 ## v0.6.0 (2024-05-09)
 
 ### Feature
