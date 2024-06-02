@@ -81,6 +81,11 @@ class Trydan:
             timeout=self._timeout,
         )
 
+        self.raw_data = {
+            "content": response.content,
+            "status_code": response.status_code,
+        }
+
         status_code = response.status_code
         if status_code in (HTTPStatus.UNAUTHORIZED, HTTPStatus.FORBIDDEN):
             raise TrydanCommunicationError(
