@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.0 (2024-06-02)
+
+### Feature
+
+* Add raw_data property ([`8055943`](https://github.com/dgomes/pytrydan/commit/8055943a0d2fe128f7a60bbf833954709700bfc0))
+
 ## v0.6.1 (2024-05-11)
 
 ### Fix
