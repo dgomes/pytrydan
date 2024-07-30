@@ -115,6 +115,7 @@ class TrydanData:
     charge_state: int
     ready_state: int | None
     charge_power: float
+    voltage_installation: int | None
     charge_energy: float
     slave_error: SlaveCommunicationState
     charge_time: int
@@ -132,6 +133,9 @@ class TrydanData:
     dynamic_power_mode: DynamicPowerMode
     contracted_power: int
     firmware_version: str | None
+    SSID: str | None
+    IP: str | None
+    signal_status: int | None
 
     @classmethod
     def from_api(cls, data: dict[str, Any]) -> TrydanData:
@@ -141,6 +145,7 @@ class TrydanData:
             charge_state=ChargeState(data["ChargeState"]),
             ready_state=ReadyState(data.get("ReadyState", 0)),
             charge_power=data["ChargePower"],
+            voltage_installation=data.get("VoltageInstallation"),
             charge_energy=data["ChargeEnergy"],
             slave_error=SlaveCommunicationState(data["SlaveError"]),
             charge_time=data["ChargeTime"],
@@ -158,4 +163,7 @@ class TrydanData:
             dynamic_power_mode=DynamicPowerMode(data["DynamicPowerMode"]),
             contracted_power=data["ContractedPower"],
             firmware_version=data.get("FirmwareVersion"),
+            SSID=data.get("SSID"),
+            IP=data.get("IP"),
+            signal_status=data.get("SignalStatus"),
         )
