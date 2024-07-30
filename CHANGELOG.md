@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.0 (2024-07-30)
+
+### Feature
+
+* Support version 2.1.17 ([`7094b4c`](https://github.com/dgomes/pytrydan/commit/7094b4ccef86ac7395062cd0beec55cc308a939e))
+
 ## v0.7.0 (2024-06-02)
 
 ### Feature
