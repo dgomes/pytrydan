@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.1 (2024-07-31)
+
+### Fix
+
+* Catch unhandled exception ([`15b4e16`](https://github.com/dgomes/pytrydan/commit/15b4e16c444e9a8b6149568ecae35522c52c0938))
+
 ## v0.8.0 (2024-07-30)
 
 ### Feature
