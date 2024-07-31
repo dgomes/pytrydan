@@ -113,7 +113,7 @@ class Trydan:
         """Get data from Trydan."""
         try:
             data = await self._json_request(f"http://{self._host}/RealTimeData")
-        except ConnectTimeout as err:
+        except (ConnectTimeout, httpx.ConnectTimeout) as err:
             raise TrydanRetryLater("Timeout connecting to Trydan") from err
         except httpx.ReadTimeout as err:
             raise TrydanRetryLater("Timeout reading from Trydan") from err
