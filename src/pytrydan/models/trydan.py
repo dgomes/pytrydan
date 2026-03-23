@@ -8,10 +8,12 @@ from typing import Any
 class ChargeState(IntEnum):
     """Enum for Charge State."""
 
-    NOT_CONNECTED = 0
-    CONNECTED_NOT_CHARGING = 1
-    CONNECTED_CHARGING = 2
-
+    NOT_CONNECTED = 0                                                                       
+    CONNECTED_NOT_CHARGING = 1                                                            
+    CONNECTED_CHARGING = 2                                                                  
+    VENTILATION_REQUIRED = 3                                                                
+    PILOT_SHORT = 4         
+    GENERAL_FAULT = 5   
 
 class ReadyState(IntEnum):
     """Enum for Ready State."""
