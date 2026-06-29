@@ -116,11 +116,15 @@ class DynamicPowerMode(IntEnum):
     """Enum for Dynamic Power Mode."""
 
     TIMED_POWER_ENABLED = 0
-    TIMED_POWER_DISABLED = 1
-    TIMED_POWER_DISABLED_AND_EXCLUSIVE_MODE_SETTED = 2
-    TIMED_POWER_DISABLED_AND_MIN_POWER_MODE_SETTED = 3
-    TIMED_POWER_DISABLED_AND_GRID_FV_MODE_SETTED = 4
+    """Application or V2C cloud profile mode."""
+    TIMED_POWER_DISABLED_AND_FV_MIN_MODE_SETTED = 2
+    """FV + min power mode."""
+    TIMED_POWER_DISABLED_AND_FV_EXCL_MODE_SETTED = 3
+    """FV exclusive mode."""
+    TIMED_POWER_DISABLED_AND_FV_GRID_MODE_SETTED = 4
+    """FV + grid mode."""
     TIMED_POWER_DISABLED_AND_STOP_MODE_SETTED = 5
+    """Stop mode."""
 
 
 @dataclass(slots=True)
