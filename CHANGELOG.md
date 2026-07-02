@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.3 (2026-07-02)
+
+### Bug fixes
+
+- Address https://github.com/dgomes/pytrydan/pull/4 ([`08f921c`](https://github.com/dgomes/pytrydan/commit/08f921c579dfbd5eb7952a676eb2cacd793de0ae))
+
+### Code style
+
+- Apply black formatting ([`7be36f1`](https://github.com/dgomes/pytrydan/commit/7be36f15db0dacbac0dfcc82f3dfebbfdc2255f2))
+
 ## v1.0.2 (2026-06-10)
 
 ### Bug fixes
