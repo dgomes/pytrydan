@@ -30,7 +30,7 @@ pytrydan = "pytrydan.cli:app"
 python = ">=3.14,<4.0"
 rich = ">=10"
 typer = ">=0.7.0"
-tenacity = "^8.2.2"
+tenacity = ">=8.2.2"
 httpx = ">=0.24.0"
 orjson = ">=3.9.2"
 
