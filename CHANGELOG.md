@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.4 (2026-07-05)
+
+### Bug fixes
+
+- Update dynamicpowermode enumeration ([`7dd5036`](https://github.com/dgomes/pytrydan/commit/7dd5036f89f53d74eccb5b5ede7895f7e43b421d))
+- Update dynamicpowermode enumeration ([`7dd5036`](https://github.com/dgomes/pytrydan/commit/7dd5036f89f53d74eccb5b5ede7895f7e43b421d))
+- Update contractedpower validator ([`7dd5036`](https://github.com/dgomes/pytrydan/commit/7dd5036f89f53d74eccb5b5ede7895f7e43b421d))
+
 ## v1.0.3 (2026-07-02)
 
 ### Bug fixes

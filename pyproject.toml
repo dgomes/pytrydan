@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytrydan"
-version = "1.0.3"
+version = "1.0.4"
 description = "Library to interface with V2C EVSE Trydan"
 authors = ["Diogo Gomes <diogogomes@gmail.com>"]
 license = "MIT"
