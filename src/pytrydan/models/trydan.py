@@ -117,6 +117,8 @@ class DynamicPowerMode(IntEnum):
 
     TIMED_POWER_ENABLED = 0
     """Application or V2C cloud profile mode."""
+    TIMED_POWER_DISABLED = 1
+    """Timed power disabled."""
     TIMED_POWER_DISABLED_AND_FV_MIN_MODE_SETTED = 2
     """FV + min power mode."""
     TIMED_POWER_DISABLED_AND_FV_EXCL_MODE_SETTED = 3
