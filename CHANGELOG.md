@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.5 (2026-08-07)
+
+### Bug fixes
+
+- Re-introduce timed_power_disabled = 1 ([`31ed2d1`](https://github.com/dgomes/pytrydan/commit/31ed2d12ff6cd7b2b3ac10f3b1d540c1946bc3ba))
+
 ## v1.0.4 (2026-07-05)
 
 ### Bug fixes
