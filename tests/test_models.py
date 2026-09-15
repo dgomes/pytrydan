@@ -5,9 +5,9 @@ from pytrydan.models.trydan import SlaveCommunicationState, TrydanData
 from .conftest import _load_json_fixture
 
 
-def test_slave_error_unmapped_code_falls_back_to_no_error():
+def test_slave_error_unmapped_code_falls_back_to_undefined_error():
     """Undocumented SlaveError codes must not raise ValueError."""
-    assert SlaveCommunicationState(224) is SlaveCommunicationState.NO_ERROR
+    assert SlaveCommunicationState(224) is SlaveCommunicationState.UNDEFINED_ERROR
 
 
 def test_slave_error_known_codes_still_map():
@@ -26,4 +26,4 @@ def test_from_api_with_unmapped_slave_error():
 
     trydan_data = TrydanData.from_api(data)
 
-    assert trydan_data.slave_error is SlaveCommunicationState.NO_ERROR
+    assert trydan_data.slave_error is SlaveCommunicationState.UNDEFINED_ERROR

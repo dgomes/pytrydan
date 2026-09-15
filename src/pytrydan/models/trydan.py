@@ -70,11 +70,11 @@ class SlaveCommunicationState(IntEnum):
 
     @classmethod
     def _missing_(cls, value: object) -> SlaveCommunicationState:
-        """Fall back to NO_ERROR for codes not documented by V2C."""
+        """Fall back to UNDEFINED_ERROR for codes not documented by V2C."""
         # Some firmware versions (e.g. v2.5.1) report undocumented SlaveError
-        # codes such as 224. Returning NO_ERROR keeps parsing working instead
-        # of raising ValueError.
-        return cls.NO_ERROR
+        # codes such as 224. Returning UNDEFINED_ERROR keeps parsing working
+        # instead of raising ValueError.
+        return cls.UNDEFINED_ERROR
 
 
 class PauseState(IntEnum):
