@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.6 (2026-09-15)
+
+### Bug fixes
+
+- Handle unmapped slavecommunicationstate error codes (e.g. 224) ([`fe7ffd1`](https://github.com/dgomes/pytrydan/commit/fe7ffd19f7cc55164430037e667a69ebbca1a9ec))
+- Handle unmapped slavecommunicationstate error codes ([`fe7ffd1`](https://github.com/dgomes/pytrydan/commit/fe7ffd19f7cc55164430037e667a69ebbca1a9ec))
+- Default unmapped slaveerror codes to undefined_error ([`fe7ffd1`](https://github.com/dgomes/pytrydan/commit/fe7ffd19f7cc55164430037e667a69ebbca1a9ec))
+
 ## v1.0.5 (2026-08-07)
 
 ### Bug fixes
